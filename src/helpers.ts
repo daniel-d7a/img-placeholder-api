@@ -20,7 +20,10 @@ export async function resizeImg(
 		await sharp(path.join(FULL_IMG_PATH, `${imgName}.${ext}`))
 			.resize(imgWidth, imgHeight)
 			.toFile(
-				path.join(THUMB_IMG_PATH, `${imgName}_thumb.${ext}`)
+				path.join(
+					THUMB_IMG_PATH,
+					`${imgName}_${imgWidth}_${imgHeight}.${ext}`
+				)
 			);
 	} catch (err) {
 		console.log("err2");
