@@ -63,7 +63,7 @@ app.get(
 				});
 
 				// get the file extension
-				const ext = fullName.slice(-3);
+				const ext = fullName.split(".").pop() || "jpg";
 
 				//if the thumb was not found
 				if (!thumbName) {

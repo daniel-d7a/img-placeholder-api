@@ -43,8 +43,8 @@ exports.resizeImg = exports.THUMB_IMG_PATH = exports.FULL_IMG_PATH = void 0;
 var sharp_1 = __importDefault(require("sharp"));
 var path_1 = __importDefault(require("path"));
 // pathes to the full and thumb image folders
-exports.FULL_IMG_PATH = path_1.default.join(__dirname, "..\\images\\full");
-exports.THUMB_IMG_PATH = path_1.default.join(__dirname, "..\\images\\thumb");
+exports.FULL_IMG_PATH = path_1.default.join(__dirname, "../images/full");
+exports.THUMB_IMG_PATH = path_1.default.join(__dirname, "../images/thumb");
 console.log(exports.FULL_IMG_PATH);
 function resizeImg(imgName, imgWidth, imgHeight, ext) {
     return __awaiter(this, void 0, void 0, function () {

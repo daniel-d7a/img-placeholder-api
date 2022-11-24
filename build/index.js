@@ -95,7 +95,7 @@ exports.app.get("/images", function (req, res) { return __awaiter(void 0, void 0
                 thumbName = thumbs.find(function (fileName) {
                     return fileName.startsWith("".concat(imgName, "_").concat(imgWidth, "_").concat(imgHeight));
                 });
-                ext = fullName.slice(-3);
+                ext = fullName.split(".").pop() || "jpg";
                 if (!!thumbName) return [3 /*break*/, 7];
                 _a.label = 4;
             case 4:
