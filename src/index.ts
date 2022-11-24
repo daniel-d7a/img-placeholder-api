@@ -6,7 +6,7 @@ import path from "path";
 import { resizeImg, FULL_IMG_PATH, THUMB_IMG_PATH } from "./helpers";
 
 //initializing the express app
-const app = express();
+export const app = express();
 const port = 8080;
 
 // the single route in the app
