@@ -26,7 +26,7 @@ export async function resizeImg(
 				)
 			);
 	} catch (err) {
-		console.log("err2");
+		console.log("err3");
 		console.log(err);
 	}
 }

@@ -12,12 +12,20 @@ const port = 8080;
 // the single route in the app
 app.get(
 	"/images",
-	async (req: express.Request, res: express.Response): Promise<void> => {
+	async (
+		req: express.Request,
+		res: express.Response,
+		next: express.NextFunction
+	): Promise<void> => {
 		// getting the query parameters
 		const imgName = req.query.name as unknown as string;
 		const imgWidth = req.query.width as unknown as string;
 		const imgHeight = req.query.height as unknown as string;
-		// console.log({ imgName, imgWidth, imgHeight });
+		console.log({
+			imgName,
+			width: Number(imgWidth),
+			height: Number(imgHeight),
+		});
 
 		// if any of the parameters is not found return
 		if (!imgName) {
@@ -32,12 +40,16 @@ app.get(
 			res.status(400).send("missing height parameter");
 			return;
 		}
-		if (isNaN(parseInt(imgWidth))) {
-			res.status(400).send("width must be a number");
+		if (isNaN(Number(imgWidth)) || Number(imgWidth) <= 0) {
+			res.status(400).send(
+				"width must be a positive number greater than 0"
+			);
 			return;
 		}
-		if (isNaN(parseInt(imgHeight))) {
-			res.status(400).send("height must be a number");
+		if (isNaN(Number(imgHeight)) || Number(imgHeight) <= 0) {
+			res.status(400).send(
+				"height must be a positive number greater than 0"
+			);
 			return;
 		}
 
@@ -76,6 +88,8 @@ app.get(
 							ext
 						);
 					} catch (err) {
+						console.log("err1");
+
 						res.status(500).send(err);
 					}
 				}
@@ -93,6 +107,7 @@ app.get(
 				res.status(404).send("file not found!");
 			}
 		} catch (err) {
+			console.log("err2");
 			res.status(500).send(err);
 		}
 	}
